@@ -6,15 +6,15 @@ User = get_user_model()
 
 class Group(models.Model):
     title = models.CharField(
-        'Имя группы.',
+        help_text='Имя группы.',
         max_length=200,
     )
     slug = models.SlugField(
-        'Адрес группы',
+        help_text='Адрес группы',
         unique=True,
     )
     description = models.TextField(
-        'Описание группы',
+        help_text='Описание группы',
     )
 
     class Meta:
@@ -27,25 +27,25 @@ class Group(models.Model):
 
 class Post(models.Model):
     text = models.TextField(
-        'Текст поста.',
+        help_text='Текст поста.',
     )
     pub_date = models.DateTimeField(
-        'Дата публикации поста.',
+        help_text='Дата публикации поста.',
         auto_now_add=True,
     )
     author = models.ForeignKey(
-        help_text='Автор поста',
         to=User,
+        help_text='Автор поста',
         related_name='posts',
         on_delete=models.CASCADE,
     )
     group = models.ForeignKey(
-        Group,
+        to=Group,
         help_text='Группа к которой относится пост.',
-        on_delete=models.CASCADE,
         related_name='posts',
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
     )
 
     class Meta:
