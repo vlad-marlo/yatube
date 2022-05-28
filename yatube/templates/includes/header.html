@@ -1,3 +1,4 @@
+{% load static %}
 {% with request.resolver_match.view_name as view_name %}
   <nav 
     class="navbar navbar-light"
@@ -58,11 +59,11 @@
               class="
                 nav-link
                 link-light
-                {% if view_name == 'users:change_password' %}
+                {% if view_name == 'users:password_change' %}
                   active
                 {% endif %}
               "
-              href="{% url "users:change_password" %}"
+              href="{% url "users:password_change" %}"
             >Изменить пароль</a>
           </li>
           <li class="nav-item"> 
@@ -97,11 +98,11 @@
               class="
                 nav-link
                 link-light
-                {% if view_name == 'users:login' %}
+                {% if view_name == 'users:signup' %}
                   active
                 {% endif %}
               "
-              href="{% url 'users:login' %}"
+              href="{% url 'users:signup' %}"
             >Регистрация</a>
           </li>
         {% endif %}
