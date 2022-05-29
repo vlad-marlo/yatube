@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, render
 
 from .models import Group
@@ -26,3 +27,22 @@ def group_list(request, slug):
     return render(
         request, 'posts/group_list.html', context
     )
+
+
+def post_create(request):
+    return HttpResponse('hello world')
+
+
+def profile(request, username: str):
+    user = get_object_or_404(User, username=username)
+    return HttpResponse('hello world')
+
+
+def post_detail(request, post_id: int):
+    post = get_object_or_404(Post, id=post_id)
+    return HttpResponse('h')
+
+
+def post_edit(response, post_id: int):
+    post = get_object_or_404(Post, id=post_id)
+    return HttpResponse('h')

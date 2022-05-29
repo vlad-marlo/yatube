@@ -5,6 +5,10 @@ User = get_user_model()
 
 
 class Group(models.Model):
+    id = models.AutoField(
+        'id группы',
+        primary_key=True,
+    )
     title = models.CharField(
         help_text='Имя группы.',
         max_length=200,
@@ -26,6 +30,9 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+    id = models.AutoField(
+        primary_key=True,
+    )
     text = models.TextField(
         help_text='Текст поста.',
     )

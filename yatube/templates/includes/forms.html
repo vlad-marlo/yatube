@@ -47,7 +47,7 @@
                 <button type="submit" class="btn btn-primary">
                   {{ button_text }}
                 </button>
-                {% if request.resolver_match.view_name %}
+                {% if request.resolver_match.view_name == 'users:login' %}
                   <a href="{% url 'users:password_reset' %}" class="btn btn-link">
                     Забыли пароль?
                   </a>
