@@ -1,4 +1,5 @@
 import os
+from django.conf.global_settings import LOGIN_REDIRECT_URL
 
 from dotenv import load_dotenv
 
@@ -87,7 +88,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -97,6 +98,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'posts:index'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_URL = '/static/'
