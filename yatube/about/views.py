@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 
 
-class TechView(TemplateView):
+class AboutTechView(TemplateView):
     template_name = 'about/tech.html'
 
 
